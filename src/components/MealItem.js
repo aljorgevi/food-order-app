@@ -1,4 +1,5 @@
 import styles from '../styles/MealItem.module.css'
+import MealItemForm from './MealItemForm'
 
 export default function MealItem(props) {
   const { name, description, price } = props
@@ -11,7 +12,9 @@ export default function MealItem(props) {
         <div style={{ fontStyle: 'italic' }}>{description}</div>
         <div className={styles.MealItemPrice}>{formatedPrice}</div>
       </div>
-      <div></div>
+      <div>
+        <MealItemForm />
+      </div>
     </li>
   )
 }
