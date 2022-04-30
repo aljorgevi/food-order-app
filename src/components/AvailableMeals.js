@@ -38,6 +38,7 @@ export default function AvailableMeals() {
             const { id, name, description, price } = meal
             return (
               <MealItem
+                id={id}
                 key={id}
                 name={name}
                 description={description}
