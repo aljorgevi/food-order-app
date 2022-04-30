@@ -1,3 +1,4 @@
+import Modal from './Modal'
 import styles from '../styles/Cart.module.css'
 
 export default function Cart(props) {
@@ -8,7 +9,7 @@ export default function Cart(props) {
     { id: 'c4', name: 'Green Bowl', price: 18.99, amount: 2 }
   ]
   return (
-    <div>
+    <Modal>
       <ul className={styles.Cart}>
         {CART_ITEMS.map(item => {
           const { id, name, price, amount } = item
@@ -21,9 +22,11 @@ export default function Cart(props) {
         <span>35.62</span>
       </div>
       <div className={styles.CartActions}>
-        <button>Close</button>
-        <button style={{ color: 'white' }}>Order</button>
+        <button style={{ color: '#8a2b06' }}>Close</button>
+        <button style={{ color: 'white', backgroundColor: '#8a2b06' }}>
+          Order
+        </button>
       </div>
-    </div>
+    </Modal>
   )
 }
