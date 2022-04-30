@@ -2,7 +2,7 @@ import styles from '../styles/MealItem.module.css'
 import MealItemForm from './MealItemForm'
 
 export default function MealItem(props) {
-  const { name, description, price } = props
+  const { id, name, description, price } = props
   const formatedPrice = `$${price.toFixed(2)}`
 
   return (
@@ -13,7 +13,7 @@ export default function MealItem(props) {
         <div className={styles.MealItemPrice}>{formatedPrice}</div>
       </div>
       <div>
-        <MealItemForm />
+        <MealItemForm id={id} />
       </div>
     </li>
   )
