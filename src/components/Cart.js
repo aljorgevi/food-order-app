@@ -14,14 +14,16 @@ const CART_ITEMS = [
 */
 export default function Cart(props) {
   const { onClose } = props
-  const { cart, totalAmount } = useContext(CartContext)
+  const { cart, totalAmount, addItem, removeItem } = useContext(CartContext)
 
   const reformattedTotalAmount = `$${totalAmount.toFixed(2)}`
   const hasItems = cart.length > 0
 
-  const cartItemRemoveHandler = id => {}
+  const cartItemRemoveHandler = id => removeItem(id)
 
-  const cartItemAddHandler = item => {}
+  const cartItemAddHandler = item => {
+    addItem({ ...item, amount: 1 })
+  }
 
   return (
     <Modal onClose={onClose}>
