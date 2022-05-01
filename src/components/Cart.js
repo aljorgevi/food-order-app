@@ -4,13 +4,14 @@ import Modal from './Modal'
 import CartItem from './CartItem'
 import styles from '../styles/Cart.module.css'
 
+/*
 const CART_ITEMS = [
   { id: 'c1', name: 'Sushi', price: 22.99, amount: 2 },
   { id: 'c2', name: 'Schnitzel', price: 16.5, amount: 1 },
   { id: 'c3', name: 'Barbecue Burger', price: 12.99, amount: 5 },
   { id: 'c4', name: 'Green Bowl', price: 18.99, amount: 2 }
 ]
-
+*/
 export default function Cart(props) {
   const { onClose } = props
   const { items, totalAmount } = useContext(CartContext)

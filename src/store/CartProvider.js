@@ -12,14 +12,31 @@ const cartReducer = (state, action) => {
     // action.payload is the item object
     const { id, name, price, amount } = action.payload
 
-    const updatedItems = state.items.concat(action.payload)
     const updatedTotalAmount = state.totalAmount + price * amount
+    // FIX: could be this with find? and get the object?
+    const existingCartItemIndex = state.items.findIndex(item => item.id === id)
+    const existingCartItem = state.items[existingCartItemIndex]
+    let updatedItems
+
+    if (existingCartItem) {
+      const updatedItem = {
+        ...existingCartItem,
+        amount: existingCartItem.amount + amount // the second amount comes from the action.payload
+      }
+
+      updatedItems = [...state.items]
+      // get the old item and overrwrite with the existing item with a new amount.
+      updatedItems[existingCartItemIndex] = updatedItem
+    } else {
+      updatedItems = [...state.items, action.payload]
+    }
 
     return {
       items: updatedItems,
       totalAmount: updatedTotalAmount
     }
   }
+
   return defautCartState
 }
 
