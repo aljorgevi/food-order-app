@@ -9,6 +9,9 @@ const defautCartState = {
 //outside the component
 const cartReducer = (state, action) => {
   if (action.type === 'ADD_ITEM') {
+    // action.payload is the item object
+    const { price, amount } = action.payload
+    console.log({ price, amount })
     const updatedItems = state.items.concat(action.payload)
     const updatedTotalAmount =
       state.totalAmount + action.payload.price * action.payload.amount
