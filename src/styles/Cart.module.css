@@ -23,7 +23,7 @@
   font: inherit;
   cursor: pointer;
   background-color: transparent;
-  border: 1px solid #8a2b06;
+  border: 1px solid var(--primary-700);
   padding: 0.5rem 2rem;
   border-radius: 25px;
   margin-left: 1rem;

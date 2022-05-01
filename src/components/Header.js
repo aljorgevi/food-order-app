@@ -1,6 +1,7 @@
-import meals from '../assets/meals.jpeg'
+import meals from '../assets/bg.jpg'
 import styles from '../styles/Header.module.css'
 import HeaderCartButton from './HeaderCartButton'
+import logo from '../assets/food-logo.png'
 
 export default function Header(props) {
   const { onShowCart } = props
@@ -8,7 +9,9 @@ export default function Header(props) {
   return (
     <>
       <header className={styles.Header}>
-        <h1>ReactMeals</h1>
+        <div style={{ width: '100px' }}>
+          <img className={styles.HeaderLogo} src={logo} alt='logo' />
+        </div>
         <HeaderCartButton onShowCart={onShowCart} />
       </header>
       <div className={styles.HeaderImage}>

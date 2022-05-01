@@ -13,6 +13,6 @@
 .MealItemPrice {
   margin-top: 0.25rem;
   font-weight: bold;
-  color: #ad5502;
+  color: var(--primary-900);
   font-size: 1.25rem;
 }
