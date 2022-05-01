@@ -2,7 +2,7 @@ import { useReducer } from 'react'
 import CartContext from './cart_context'
 
 const defautCartState = {
-  items: [],
+  cart: [],
   totalAmount: 0
 }
 
@@ -13,9 +13,9 @@ const cartReducer = (state, action) => {
     const { id, name, price, amount } = action.payload
 
     const updatedTotalAmount = state.totalAmount + price * amount
-    // FIX: could be this with find? and get the object?
-    const existingCartItemIndex = state.items.findIndex(item => item.id === id)
-    const existingCartItem = state.items[existingCartItemIndex]
+    // HERE FIND THE OBJECT BY INDEX MAKE SENSE BECAUSE LINE 29 IS REMPLACED IN THE ARRAY. FINDING IT BY INDEX.
+    const existingCartItemIndex = state.cart.findIndex(item => item.id === id)
+    const existingCartItem = state.cart[existingCartItemIndex]
     let updatedItems
 
     if (existingCartItem) {
@@ -24,15 +24,15 @@ const cartReducer = (state, action) => {
         amount: existingCartItem.amount + amount // the second amount comes from the action.payload
       }
 
-      updatedItems = [...state.items]
+      updatedItems = [...state.cart]
       // get the old item and overrwrite with the existing item with a new amount.
       updatedItems[existingCartItemIndex] = updatedItem
     } else {
-      updatedItems = [...state.items, action.payload]
+      updatedItems = [...state.cart, action.payload]
     }
 
     return {
-      items: updatedItems,
+      cart: updatedItems,
       totalAmount: updatedTotalAmount
     }
   }
@@ -59,7 +59,7 @@ const CartProvider = ({ children }) => {
 
   // concrete context value, this is going to be update it overtime
   const cartContext = {
-    items: cartState.items,
+    cart: cartState.cart,
     totalAmount: cartState.totalAmount,
     addItem: addItemToCartHandler,
     removeItem: removeItemFromCartHandler

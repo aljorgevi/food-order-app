@@ -5,9 +5,9 @@ import styles from '../styles/HeaderCartButton.module.css'
 
 export default function HeaderCartButton(props) {
   const { onShowCart } = props
-  const cartCtx = useContext(CartContext)
+  const { cart } = useContext(CartContext)
 
-  const numberOfCartItems = cartCtx.items.reduce((acc, item) => {
+  const numberOfCartItems = cart.reduce((acc, item) => {
     return acc + item.amount
   }, 0)
 

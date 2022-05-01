@@ -14,10 +14,10 @@ const CART_ITEMS = [
 */
 export default function Cart(props) {
   const { onClose } = props
-  const { items, totalAmount } = useContext(CartContext)
+  const { cart, totalAmount } = useContext(CartContext)
 
   const reformattedTotalAmount = `$${totalAmount.toFixed(2)}`
-  const hasItems = items.length > 0
+  const hasItems = cart.length > 0
 
   const cartItemRemoveHandler = id => {}
 
@@ -26,7 +26,7 @@ export default function Cart(props) {
   return (
     <Modal onClose={onClose}>
       <ul className={styles.Cart}>
-        {items.map(item => {
+        {cart.map(item => {
           const { id, name, price, amount } = item
 
           return (
