@@ -1,12 +1,7 @@
 import { useReducer } from 'react'
 import CartContext from './cart_context'
-import reducer from './CartReducer'
+import reducer, { initialState } from './CartReducer'
 import { ADD_ITEM, REMOVE_ITEM } from './actions'
-
-const initialState = {
-  cart: [],
-  totalAmount: 0
-}
 
 const CartProvider = ({ children }) => {
   const [state, dispatchCartAction] = useReducer(reducer, initialState)

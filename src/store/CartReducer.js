@@ -1,5 +1,10 @@
 import { ADD_ITEM, REMOVE_ITEM } from './actions'
 
+export const initialState = {
+  cart: [],
+  totalAmount: 0
+}
+
 // this could be a service
 function findIndex(array, id) {
   return array.findIndex(item => item.id === id)
