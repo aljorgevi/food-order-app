@@ -1,12 +1,15 @@
+import { forwardRef } from 'react'
 import styles from '../styles/Input.module.css'
 
-export default function Input(props) {
+const Input = forwardRef((props, ref) => {
   const { input, label } = props
   const { id } = input
   return (
     <div className={styles.Input}>
       <label htmlFor={id}>{label}</label>
-      <input {...input} />
+      <input ref={ref} {...input} />
     </div>
   )
-}
+})
+
+export default Input

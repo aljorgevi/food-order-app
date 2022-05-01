@@ -10,11 +10,9 @@ const defautCartState = {
 const cartReducer = (state, action) => {
   if (action.type === 'ADD_ITEM') {
     // action.payload is the item object
-    const { price, amount } = action.payload
-    console.log({ price, amount })
+    const { id, name, price, amount } = action.payload
     const updatedItems = state.items.concat(action.payload)
-    const updatedTotalAmount =
-      state.totalAmount + action.payload.price * action.payload.amount
+    const updatedTotalAmount = state.totalAmount + price * amount
 
     return {
       items: updatedItems,
@@ -30,8 +28,11 @@ const CartProvider = ({ children }) => {
     defautCartState
   )
 
-  const addItemToCartHandler = item => {
-    dispatchCartAction({ type: 'ADD_ITEM', payload: item })
+  const addItemToCartHandler = ({ id, name, price, amount }) => {
+    dispatchCartAction({
+      type: 'ADD_ITEM',
+      payload: { id, name, price, amount }
+    })
   }
 
   const removeItemFromCartHandler = id => {
